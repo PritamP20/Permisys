@@ -25,16 +25,17 @@ describe("Permisys",()=>{
         await tracnsaction.wait()
     })
     it("Final check", async () => {
-        await permission.connect(mentor).MentorApproval(1, true);
+        await permission.connect(teacher).TeacherApproval(1, true);
         const status = await permission.getRequestStatus(1);
-        const statusMap = {
-            0: 'Pending',
-            1: 'Approved',
-            2: 'Rejected by Teacher',
-            3: 'Rejected by Mentor',
-            4: 'Reject by both'
-        };
+        console.log(status.toString())
+        // const statusMap = {
+        //     0: 'Pending',
+        //     1: 'Approved',
+        //     2: 'Rejected by Teacher',
+        //     3: 'Rejected by Mentor',
+        //     4: 'Reject by both'
+        // };
         
-        console.log("Request Status:", statusMap[status.toString()]);
+        // console.log("Request Status:", statusMap[status.toString()]);
     });
 })
